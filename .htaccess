@@ -1,0 +1,35 @@
+Options -Indexes
+RewriteEngine On
+
+# 1. Strip .html extension — permanent redirect to clean URL
+RewriteCond %{THE_REQUEST} \s/([^?#]*?)\.html[\s?#] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# 2. Redirect old flat slugs to their /pages/ canonical URLs
+RewriteRule ^terms/?$                 /pages/terms-of-service     [R=301,L,NE]
+RewriteRule ^privacy/?$               /pages/privacy-policy       [R=301,L,NE]
+RewriteRule ^community-guidelines/?$  /pages/community-guidelines [R=301,L,NE]
+RewriteRule ^cookies/?$               /pages/cookie-policy        [R=301,L,NE]
+RewriteRule ^delete-account/?$        /pages/delete-account       [R=301,L,NE]
+RewriteRule ^support/?$               /pages/support              [R=301,L,NE]
+RewriteRule ^content-policy/?$        /pages/content-policy       [R=301,L,NE]
+RewriteRule ^licenses/?$              /pages/licenses             [R=301,L,NE]
+
+# 3. Internally serve .html files for /pages/ slugs (no external redirect)
+RewriteRule ^pages/terms-of-service/?$      terms.html              [L]
+RewriteRule ^pages/privacy-policy/?$        privacy.html            [L]
+RewriteRule ^pages/community-guidelines/?$  community-guidelines.html [L]
+RewriteRule ^pages/cookie-policy/?$         cookies.html            [L]
+RewriteRule ^pages/delete-account/?$        delete-account.html     [L]
+RewriteRule ^pages/support/?$               support.html            [L]
+RewriteRule ^pages/content-policy/?$        content-policy.html     [L]
+RewriteRule ^pages/licenses/?$              licenses.html           [L]
+
+# 4. /feedback route
+RewriteRule ^feedback/?$  feedback.html  [L]
+
+# 5. Generic clean URL fallback for any remaining .html files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]

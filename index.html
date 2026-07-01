@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Fertility Minds — You don't have to navigate fertility alone</title>
+  <meta name="description" content="Fertility Minds is a wellness and community platform supporting every stage of your fertility journey — expert-reviewed content, guided meditations, mood tracking and safe community spaces.">
+  <meta name="theme-color" content="#EC4899">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink:#EC4899; --pink-deep:#EE5A8C; --purple:#A78BFA; --blue:#60A5FA; --green:#34D399;
+      --grad:linear-gradient(135deg,#F472B6 0%,#C084FC 58%,#A78BFA 100%);
+      --grad-soft:linear-gradient(180deg,#FDF2F8 0%,#F3F0FF 100%);
+      --ink:#201B33; --slate:#6B7280; --line:#ECEAF1; --soft:#F5F4F8; --white:#fff;
+      --radius:24px; --radius-sm:16px; --shadow:0 18px 50px rgba(76,40,90,.10);
+      --shadow-sm:0 8px 24px rgba(76,40,90,.07);
+      --maxw:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);line-height:1.12;margin:0;letter-spacing:-.02em}
+    p{margin:0}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    .section{padding:96px 0}
+    .eyebrow{display:inline-block;font-family:'Plus Jakarta Sans';font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
+    .lede{font-size:1.125rem;color:var(--slate);max-width:60ch}
+    .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .btn{display:inline-flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans';font-weight:700;font-size:1rem;padding:15px 28px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;text-align:center}
+    .btn svg{width:18px;height:18px}
+    .btn--primary{background:var(--grad);color:#fff;box-shadow:0 12px 26px rgba(236,72,153,.32)}
+    .btn--primary:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(236,72,153,.40)}
+    .btn--ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+    .btn--ghost:hover{border-color:var(--pink);color:var(--pink)}
+    .btn--block{display:flex;width:100%;justify-content:center}
+    :focus-visible{outline:3px solid var(--purple);outline-offset:3px;border-radius:6px}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.18rem}
+    .brand .mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#fff}
+    .brand .mark svg{width:20px;height:20px}
+    .nav__links{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0}
+    .nav__links a{font-weight:600;color:#46415a;font-size:.97rem}
+    .nav__links a:hover{color:var(--pink)}
+    .nav__cta{background:var(--grad);color:#fff!important;padding:10px 20px;border-radius:999px;font-family:'Plus Jakarta Sans';font-weight:700}
+    .nav__toggle{display:none;background:none;border:0;cursor:pointer;color:var(--ink)}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;background:radial-gradient(900px 500px at 85% -10%,#FCE7F3 0%,transparent 60%),radial-gradient(700px 500px at 5% 0%,#EDE9FE 0%,transparent 55%)}
+    .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:84px 0 92px}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);color:#6d2a55;font-weight:600;font-size:.85rem;padding:8px 16px;border-radius:999px;margin-bottom:22px}
+    .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--pink)}
+    .hero h1{font-size:clamp(2.5rem,5vw,3.6rem);font-weight:800}
+    .hero__lede{margin:22px 0 30px;font-size:1.18rem;color:var(--slate);max-width:46ch}
+    .store-row{display:flex;gap:14px;flex-wrap:wrap}
+    .store-badge{display:inline-flex;align-items:center;gap:11px;background:var(--ink);color:#fff;padding:12px 20px;border-radius:14px}
+    .store-badge svg{width:22px;height:22px;fill:#fff}
+    .store-badge small{display:block;font-size:.66rem;opacity:.8;line-height:1}
+    .store-badge strong{font-family:'Plus Jakarta Sans';font-size:1rem;line-height:1.2}
+    .hero__trust{display:flex;align-items:center;gap:9px;margin-top:26px;color:#7c768c;font-size:.92rem;font-weight:500}
+    .hero__trust svg{width:18px;height:18px;color:var(--pink)}
+    .hero__visual{position:relative;display:grid;place-items:center}
+    .hero__blob{position:absolute;width:420px;height:420px;border-radius:50%;background:var(--grad);filter:blur(8px);opacity:.16}
+    .phone{position:relative;width:270px;border-radius:42px;background:#0e0b1a;padding:11px;box-shadow:0 40px 80px rgba(70,30,80,.28);border:1px solid rgba(255,255,255,.1)}
+    .phone::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:96px;height:26px;background:#0e0b1a;border-radius:0 0 16px 16px;z-index:2}
+    .phone img{width:100%;border-radius:32px;display:block}
+
+    /* Features */
+    .section-head{text-align:center;max-width:680px;margin:0 auto 56px}
+    .section-head .lede{margin:14px auto 0}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .feature{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}
+    .feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .feature__icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#FCE7F3,#EDE9FE);display:grid;place-items:center;color:var(--pink);margin-bottom:18px}
+    .feature__icon svg{width:26px;height:26px}
+    .feature h3{font-size:1.16rem;margin-bottom:8px}
+    .feature p{color:var(--slate);font-size:.97rem}
+
+    /* Expert reviewed (two-column) */
+    .soft{background:var(--soft)}
+    .expert{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+    .expert__copy h2{font-size:clamp(2rem,3.6vw,2.7rem);font-weight:800}
+    .expert__cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .expert-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:26px 24px;box-shadow:var(--shadow-sm)}
+    .expert-card .emoji{font-size:1.7rem;line-height:1;display:block;margin-bottom:16px}
+    .expert-card span{font-family:'Plus Jakarta Sans';font-weight:700;font-size:1.05rem}
+
+    /* Community */
+    .community{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .community--reverse .community__visual{order:2}
+    .tagrow{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 26px}
+    .tag{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-weight:600;font-size:.92rem;box-shadow:var(--shadow-sm)}
+    .tag .d{width:9px;height:9px;border-radius:50%}
+    .checklist{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+    .checklist li{display:flex;align-items:flex-start;gap:12px;color:#4a4559;font-weight:500}
+    .checklist svg{width:22px;height:22px;color:var(--pink);flex:none;margin-top:1px}
+
+    /* Pricing */
+    .pricing-sec{background:var(--grad-soft)}
+    .pricing-head{text-align:center;max-width:640px;margin:0 auto 48px}
+    .pricing-head h2{font-size:clamp(2.1rem,4vw,3rem);font-weight:800}
+    .pricing-head .lede{margin:16px auto 0}
+    .price-card{max-width:480px;margin:0 auto;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 30px 70px rgba(120,60,140,.18)}
+    .price-card__top{position:relative;background:var(--grad);color:#fff;padding:34px 34px 30px}
+    .price-card__badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+    .price-card__label{font-family:'Plus Jakarta Sans';font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;opacity:.92}
+    .price-card__amount{font-family:'Plus Jakarta Sans';font-weight:800;font-size:3rem;line-height:1.1;margin-top:6px}
+    .price-card__amount small{font-size:1.05rem;font-weight:600;opacity:.9}
+    .price-card__heart{position:absolute;top:30px;right:30px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center}
+    .price-card__heart svg{width:22px;height:22px;color:#fff}
+    .price-card__body{padding:30px 34px 36px}
+    .price-card__sub{color:var(--slate);font-size:.97rem;margin-bottom:22px}
+    .price-card__list{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:16px}
+    .price-card__list li{display:flex;align-items:flex-start;gap:13px;font-size:1rem;color:#332f44}
+    .price-card__list .tick{flex:none;width:24px;height:24px;border-radius:50%;border:2px solid var(--pink);display:grid;place-items:center;margin-top:1px}
+    .price-card__list .tick svg{width:13px;height:13px;color:var(--pink)}
+    .fineprint{text-align:center;color:#9a93a8;font-size:.82rem;margin-top:14px}
+
+    /* CTA */
+    .cta-banner{background:var(--grad);border-radius:30px;padding:64px 40px;text-align:center;color:#fff;box-shadow:0 30px 70px rgba(150,60,140,.28)}
+    .cta-banner h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:800}
+    .cta-banner p{max-width:48ch;margin:16px auto 28px;opacity:.95;font-size:1.08rem}
+    .cta-banner .btn{background:#fff;color:#b8316e}
+    .cta-banner .btn:hover{transform:translateY(-2px)}
+
+    /* Footer */
+    .site-footer{background:#1a1626;color:#cfc8dd;padding:64px 0 30px;font-size:.94rem}
+    .footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer__brand{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans';font-weight:800;color:#fff;font-size:1.15rem;margin-bottom:14px}
+    .footer__brand .mark{width:32px;height:32px;border-radius:9px;background:var(--grad);display:grid;place-items:center}
+    .footer__brand .mark svg{width:19px;height:19px;color:#fff}
+    .footer__tag{color:#a79fb8;max-width:34ch;margin-bottom:18px}
+    .footer__contact a{color:#fff;font-weight:600}
+    .footer__col h4{color:#fff;font-family:'Plus Jakarta Sans';font-size:.95rem;margin-bottom:14px}
+    .footer__col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .footer__col a:hover{color:var(--pink)}
+    .footer__legal{padding-top:24px;color:#8d85a0;font-size:.84rem;line-height:1.7}
+    .footer__legal strong{color:#cfc8dd;font-weight:600}
+    .footer__copy{margin-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+    @media (max-width:900px){
+      .nav__links{display:none}
+      .nav__links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:#fff;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+      .nav__toggle{display:block}
+      .hero__grid,.expert,.community{grid-template-columns:1fr;gap:40px}
+      .community--reverse .community__visual{order:0}
+      .hero__visual{order:-1}
+      .features{grid-template-columns:1fr 1fr}
+      .expert__cards{grid-template-columns:1fr 1fr}
+      .footer__grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:560px){
+      .section{padding:64px 0}
+      .features,.expert__cards,.footer__grid{grid-template-columns:1fr}
+      .footer__copy{flex-direction:column}
+    }
+    @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="#top" class="brand" aria-label="Fertility Minds home">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-7-11A4 4 0 0 1 12 7a4 4 0 0 1 7 3c0 6.4-7 11-7 11z" fill="currentColor"/></svg></span>
+      <span>Fertility Minds</span>
+    </a>
+    <ul class="nav__links" id="nav">
+      <li><a href="#why">Why us</a></li>
+      <li><a href="#experts">Expert-reviewed</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#waitlist" class="nav__cta">Get the app</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" onclick="var n=document.getElementById('nav');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <span class="pill"><span class="dot"></span> Coming soon to iOS &amp; Android</span>
+          <h1>You don't have to navigate fertility <span class="grad-text">alone</span>.</h1>
+          <p class="hero__lede">A wellness and community app for every stage of the fertility journey — expert-reviewed content, guided meditations, mood tracking and safe, moderated community spaces.</p>
+          <div class="store-row">
+            <a href="#waitlist" class="store-badge" aria-label="Coming soon to the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.54c-.03-2.71 2.21-4.02 2.31-4.08-1.26-1.84-3.22-2.09-3.91-2.12-1.66-.17-3.25.98-4.1.98-.86 0-2.15-.96-3.54-.93-1.82.03-3.5 1.06-4.43 2.69-1.9 3.28-.48 8.13 1.36 10.8.9 1.31 1.97 2.78 3.36 2.73 1.36-.06 1.87-.88 3.51-.88s2.1.88 3.54.85c1.46-.02 2.39-1.33 3.28-2.65 1.04-1.52 1.47-2.99 1.49-3.07-.03-.01-2.85-1.1-2.87-4.32zM14.35 4.61c.75-.91 1.26-2.18 1.12-3.44-1.08.04-2.39.72-3.17 1.63-.7.8-1.31 2.09-1.15 3.32 1.21.09 2.45-.61 3.2-1.51z"/></svg>
+              <span><small>Coming soon to</small><strong>App Store</strong></span>
+            </a>
+            <a href="#waitlist" class="store-badge" aria-label="Coming soon to Google Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.7c-.4.4-.6 1-.6 1.7v17.2c0 .7.2 1.3.6 1.7l11-11-11-9.6zm12.4 10.8 2.8 2.5-3 1.7L4.9 6.4l11.1 6.1zm-11.1 9.8 11.1-6.1-2.8-2.5L4.9 21.3zm15-9.7c.8-.4.8-1.7 0-2.1L17.3 9l-3 2.6 3 2.6 2.6-1.6z"/></svg>
+              <span><small>Coming soon to</small><strong>Google Play</strong></span>
+            </a>
+          </div>
+          <div class="hero__trust">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8a5.2 5.2 0 0 1 9-3.6 5.2 5.2 0 0 1 9 3.6c0 7.3-8 11.8-8 11.8z"/></svg>
+            <span>UK-based · GDPR-compliant · designed with fertility psychologists</span>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__blob" aria-hidden="true"></div>
+          <div class="phone"><img src="images/app-welcome.png" alt="Fertility Minds welcome screen shown on a smartphone"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY / FEATURES ============ -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why Fertility Minds</span>
+        <h2>Care for the part of the journey nobody talks about.</h2>
+        <p class="lede">Fertility care often focuses on the medical. We focus on the emotional — the waiting, the wondering, the weight of it all. Built for women, couples and anyone navigating fertility, at any stage.</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.6a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.07a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.85a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <h3>Expert-led wellness</h3>
+          <p>Guided meditations, breathwork and movement sessions designed with fertility psychologists and yoga therapists.</p>
+        </article>
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Safe community</h3>
+          <p>Moderated peer groups for every chapter — trying to conceive, IVF, loss, surrogacy, partner support. You are not alone.</p>
+        </article>
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h3>Curated knowledge</h3>
+          <p>Articles, video sessions and audio tools verified by fertility specialists — never generic wellness fluff.</p>
+        </article>
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <h3>Daily mood check-ins</h3>
+          <p>Track how you're feeling, build emotional self-awareness, and get gentle content matched to your day.</p>
+        </article>
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Private &amp; protected</h3>
+          <p>Your data is yours. Fully GDPR-compliant, with privacy controls in your hands. No selling, ever.</p>
+        </article>
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>For every journey</h3>
+          <p>Whether you're just starting out, mid-treatment or holding space for loss — Fertility Minds adapts to where you are.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERT-REVIEWED  (Nutritionists card removed per client request) ============ -->
+  <section class="section soft" id="experts">
+    <div class="container">
+      <div class="expert">
+        <div class="expert__copy">
+          <span class="eyebrow">Expert reviewed</span>
+          <h2>Backed by people who've spent their lives in fertility care.</h2>
+          <p class="lede" style="margin-top:18px">Every article, meditation and program is reviewed by qualified clinicians and therapists — so you can trust what you read.</p>
+        </div>
+        <div class="expert__cards">
+          <div class="expert-card"><span class="emoji" aria-hidden="true">🩺</span><span>Fertility Specialists</span></div>
+          <div class="expert-card"><span class="emoji" aria-hidden="true">🧠</span><span>Psychologists</span></div>
+          <div class="expert-card"><span class="emoji" aria-hidden="true">🧘‍♀️</span><span>Yoga Therapists</span></div>
+          <div class="expert-card"><span class="emoji" aria-hidden="true">⚕️</span><span>Clinicians</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMUNITY  (group cards with fabricated member counts removed; honest version) ============ -->
+  <section class="section" id="community">
+    <div class="container">
+      <div class="community community--reverse">
+        <div class="community__visual">
+          <div class="phone" style="margin:0 auto"><img src="images/app-community.png" alt="Fertility Minds community groups screen on a smartphone"></div>
+        </div>
+        <div class="community__copy">
+          <span class="eyebrow">Community</span>
+          <h2 style="font-size:clamp(2rem,3.6vw,2.7rem)">Find people who truly understand.</h2>
+          <p class="lede" style="margin-top:16px">Join private, moderated groups for the specific chapter you're in. Share, vent, ask — or just read along. Every group is held with care and guided by our community guidelines.</p>
+          <div class="tagrow" aria-label="Community group topics">
+            <span class="tag"><span class="d" style="background:var(--pink)"></span> Trying to conceive</span>
+            <span class="tag"><span class="d" style="background:var(--purple)"></span> IVF</span>
+            <span class="tag"><span class="d" style="background:var(--blue)"></span> Partner support</span>
+            <span class="tag"><span class="d" style="background:var(--green)"></span> Coping with loss</span>
+            <span class="tag"><span class="d" style="background:var(--pink-deep)"></span> Pregnancy after loss</span>
+          </div>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Actively moderated by our community team</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Anonymous posting available — share at your own pace</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> A group for every stage of the journey</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING  (14-day free trial added) ============ -->
+  <section class="section pricing-sec" id="pricing">
+    <div class="container">
+      <div class="pricing-head">
+        <span class="eyebrow">Membership</span>
+        <h2>One simple plan. <span class="grad-text">Everything you need.</span></h2>
+        <p class="lede">Unlock the full Fertility Minds experience — wellness tools, expert content and a supportive community, all in one place.</p>
+      </div>
+      <div class="price-card">
+        <div class="price-card__top">
+          <span class="price-card__heart" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.6-7-11A4 4 0 0 1 12 7a4 4 0 0 1 7 3c0 6.4-7 11-7 11z"/></svg></span>
+          <span class="price-card__badge">14-day free trial</span>
+          <div class="price-card__label">Premium</div>
+          <div class="price-card__amount">£7.99<small> / month</small></div>
+        </div>
+        <div class="price-card__body">
+          <p class="price-card__sub">Start with a <strong>14-day free trial</strong>, then £7.99/month. Cancel anytime.</p>
+          <ul class="price-card__list">
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Full access to guided wellness videos &amp; meditations</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Expert-verified articles and audio tools</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Unlimited access to community groups &amp; discussions</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> New weekly content curated by fertility professionals</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Save &amp; track your favourite tools and sessions</li>
+          </ul>
+          <a href="#waitlist" class="btn btn--primary btn--block">Start your free trial
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <p class="fineprint">Free for 14 days, then £7.99/month billed through the App Store or Google Play. Cancel anytime before the trial ends and you won't be charged.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews / testimonials section removed per client request -->
+
+  <!-- ============ CTA ============ -->
+  <section class="section" id="waitlist">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Be the first to know when we launch.</h2>
+        <p>Fertility Minds is launching soon on the App Store and Google Play. Get in touch to be notified the moment we go live.</p>
+        <a href="mailto:hello@fertilityminds.com" class="btn">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER  (registered company details added) ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <div class="footer__brand">
+          <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-7-11A4 4 0 0 1 12 7a4 4 0 0 1 7 3c0 6.4-7 11-7 11z" fill="currentColor"/></svg></span>
+          <span>Fertility Minds</span>
+        </div>
+        <p class="footer__tag">A safe space for every journey. Expert-led wellness, peer support and curated content for fertility wellbeing.</p>
+        <p class="footer__contact">Contact: <a href="mailto:hello@fertilityminds.com">hello@fertilityminds.com</a></p>
+      </div>
+      <div class="footer__col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#why">Why us</a></li>
+          <li><a href="#experts">Expert-reviewed</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="/pages/support">Support</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/pages/delete-account">Delete account</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/pages/terms-of-service">Terms of Service</a></li>
+          <li><a href="/subscription-terms">Subscription Terms</a></li>
+          <li><a href="/pages/cookie-policy">Cookies Policy</a></li>
+          <li><a href="/pages/community-guidelines">Community Guidelines</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <p><strong>Fertility Minds</strong> is a trading name of <strong>FERTILITY MINDS LTD</strong>, a company registered in England &amp; Wales (No.&nbsp;16617575). Registered office: Director Generals House, 15 Rockstone Place, Southampton, England, SO15&nbsp;2EP.</p>
+      <div class="footer__copy">
+        <span>&copy; <span id="yr">2026</span> FERTILITY MINDS LTD. All rights reserved.</span>
+        <span>Made with care in the United Kingdom.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
