@@ -4,30 +4,32 @@
    ========================================================= */
 
 :root {
-  /* Brand colour palette (matched to mobile app) */
-  --fm-pink: #EE5A8C;          /* Primary brand pink */
-  --fm-pink-soft: #F378A2;
-  --fm-pink-deep: #D63F75;
-  --fm-pink-50: #FFF5F8;
-  --fm-pink-100: #FFE6EE;
-  --fm-pink-200: #FFC9DC;
-  --fm-coral: #F89BBA;
+  /* Brand colour palette (matched exactly to mobile app) */
+  --fm-pink: #fa6aab;          /* Primary brand pink (app CTA / active) */
+  --fm-pink-soft: #FB8DC0;
+  --fm-pink-deep: #E24E92;
+  --fm-pink-50: #FFF3F8;
+  --fm-pink-100: #FFE3EF;
+  --fm-pink-200: #FEC5DE;
+  --fm-coral: #FB8DC0;
+  --fm-indigo: #4f46e5;        /* Premium / secondary indigo */
+  --fm-blue: #6187E8;          /* Soft blue accent */
   --fm-lavender: #E9E6F9;
   --fm-lavender-deep: #B5AEE0;
   --fm-cream: #FFFBF8;
 
-  /* Neutrals */
-  --fm-ink: #1A1424;           /* Headings */
+  /* Neutrals (app light-mode tokens) */
+  --fm-ink: #1d1d1f;           /* Headings (app light text) */
   --fm-text: #3D3548;          /* Body */
   --fm-muted: #6B6577;         /* Secondary text */
   --fm-line: #ECE9F1;
   --fm-line-strong: #DAD5E2;
   --fm-white: #FFFFFF;
-  --fm-off: #FAF8FB;
+  --fm-off: #f5f5f7;           /* App light-grey surface */
 
   /* Semantic */
   --fm-success: #2E9F6B;
-  --fm-danger: #D6336C;
+  --fm-danger: #e11d48;        /* App destructive / warning */
 
   /* Type scale */
   --text-xs: 0.8125rem;        /* 13 */
@@ -243,15 +245,16 @@ input, textarea, select {
 .nav__logo {
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(135deg, var(--fm-pink) 0%, var(--fm-coral) 100%);
   display: grid;
   place-items: center;
-  box-shadow: var(--shadow-pink);
   flex-shrink: 0;
 }
 
 .nav__logo svg { width: 22px; height: 22px; color: #fff; }
+
+/* App brand mark (pink handshake-heart-pineapple) */
+.brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; flex-shrink: 0; }
+.footer__brand .brand-logo { width: 38px; height: 38px; }
 
 .nav__links {
   display: flex;

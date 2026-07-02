@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fertilityminds.com/sitemap.xml

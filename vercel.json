@@ -2,23 +2,43 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/pages/privacy-policy", "destination": "/privacy.html" },
     { "source": "/pages/terms-of-service", "destination": "/terms.html" },
-    { "source": "/pages/cookie-policy", "destination": "/cookies.html" },
-    { "source": "/pages/support", "destination": "/support.html" },
-    { "source": "/pages/delete-account", "destination": "/delete-account.html" },
+    { "source": "/pages/privacy-policy", "destination": "/privacy.html" },
     { "source": "/pages/community-guidelines", "destination": "/community-guidelines.html" },
+    { "source": "/pages/content-policy", "destination": "/content-policy.html" },
+    { "source": "/pages/cookie-policy", "destination": "/cookies.html" },
+    { "source": "/pages/licenses", "destination": "/licenses.html" },
+    { "source": "/pages/delete-account", "destination": "/delete-account.html" },
+    { "source": "/pages/support", "destination": "/support.html" },
+    { "source": "/pages/dmca", "destination": "/dmca.html" },
     { "source": "/pages/subscription-terms", "destination": "/subscription-terms.html" },
     { "source": "/pages/refund-policy", "destination": "/refund-policy.html" },
-    { "source": "/pages/dmca", "destination": "/dmca.html" },
-    { "source": "/pages/content-policy", "destination": "/content-policy.html" },
-    { "source": "/pages/licenses", "destination": "/licenses.html" },
     { "source": "/pages/contact", "destination": "/contact.html" },
     { "source": "/pages/faq", "destination": "/faq.html" },
     { "source": "/pages/about", "destination": "/about.html" },
-    { "source": "/pages/feedback", "destination": "/feedback.html" },
-    { "source": "/cookie-policy", "destination": "/cookies.html" },
-    { "source": "/privacy-policy", "destination": "/privacy.html" },
-    { "source": "/terms-of-service", "destination": "/terms.html" }
+    { "source": "/feedback", "destination": "/feedback.html" }
+  ],
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" },
+        { "key": "Cache-Control", "value": "no-cache" }
+      ]
+    },
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" },
+        { "key": "Cache-Control", "value": "no-cache" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
   ]
 }

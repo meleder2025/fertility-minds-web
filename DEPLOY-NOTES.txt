@@ -1,0 +1,83 @@
+FERTILITY MINDS — WEBSITE DEPLOY PACKAGE
+Updated: 2 July 2026 — implements developer feedback (6 points + brand colours)
+
+WHAT'S IN THIS PACKAGE
+======================
+- 16 HTML pages (index + about, contact, faq, support, privacy, terms, cookies,
+  delete-account, community-guidelines, subscription-terms, refund-policy, dmca,
+  content-policy, licenses, feedback)
+- css/styles.css          brand design system (colours matched to the app)
+- js/site.js              small progressive-enhancement script
+- images/                 app logo (logo-mark.png), favicons, OG image, screenshots
+- favicon.svg             brand favicon
+- vercel.json             routing + headers for Vercel
+- .htaccess               equivalent routing for Apache servers
+- .well-known/            deep-linking verification files (see note below)
+- robots.txt, sitemap.xml SEO / crawler files
+
+DEVELOPER FEEDBACK — HOW EACH POINT IS ADDRESSED
+================================================
+1. HOMEPAGE BRANDING & APP IDENTITY
+   - Website now uses the exact app logo (pink handshake-heart-pineapple mark)
+     in every header and footer: images/logo-mark.png
+   - Brand colours matched to the app palette:
+       Primary pink  #fa6aab  (CTAs, active ticks/checkboxes)
+       Indigo        #4f46e5  / soft blue #6187E8 (premium/secondary accents)
+       Destructive   #e11d48  (alerts/warnings)
+       Text          #1d1d1f (light)  Surfaces #ffffff / #f5f5f7
+
+2. URL STRUCTURE (matches the app exactly)
+   The following clean URLs are served (see vercel.json / .htaccess):
+     /pages/terms-of-service      /pages/privacy-policy
+     /pages/community-guidelines  /pages/content-policy
+     /pages/cookie-policy         /pages/licenses
+     /pages/delete-account        /pages/support
+     /pages/dmca                  /feedback   (note: NOT under /pages/)
+   Also mapped: /pages/subscription-terms, /pages/refund-policy,
+   /pages/contact, /pages/faq, /pages/about
+   Underlying files keep their existing names (e.g. terms.html) and are
+   rewritten to the required slugs — no file renaming needed.
+
+3. FOOTER CONSISTENCY
+   The footer is now IDENTICAL on all 16 pages, including the DMCA link on
+   every page (Product / Help / Legal columns + company registration line).
+
+4. SUBSCRIPTION PRICING
+   - Homepage now states "Premium membership starts from £7.99/month" and notes
+     Apple/Google calculate local taxes and rates.
+   - Premium features listed per spec (guided videos & meditations; expert-verified
+     articles & tools; unlimited community; new weekly content; save & track).
+   - "14-day free trial available for eligible users (those who have not previously
+     purchased a Premium subscription)" is stated on the homepage and in the
+     Subscription Terms page.
+
+5. DEEP LINKING & VERIFICATION FILES
+   - /.well-known/apple-app-site-association  (iOS Universal Links)
+   - /.well-known/assetlinks.json             (Android App Links)
+   Both are served with the correct Content-Type and no restrictions
+   (see vercel.json "headers" and .htaccess).
+   >>> ACTION NEEDED: replace the placeholders before store submission:
+       - apple-app-site-association: set appID to TEAMID.com.fertilityminds.app
+         (your real Apple Team ID + bundle ID)
+       - assetlinks.json: set package_name and the real SHA256 signing fingerprint
+
+6. PUBLIC / STATIC ASSETS
+   - robots.txt, sitemap.xml, favicons, apple-touch-icon, and og-image.png are
+     included and served from the site root / images folder.
+
+DEPLOYING ON VERCEL
+===================
+Push these files to the connected repo (or drag-drop into the Vercel project).
+vercel.json handles clean URLs, the /pages/* routing, and the .well-known headers.
+No build step required — this is a static site.
+
+DEPLOYING ON A STANDARD (APACHE) SERVER
+=======================================
+Upload the whole folder to the web root. .htaccess reproduces the same routing.
+Ensure mod_rewrite is enabled.
+
+OUTSTANDING (BEFORE APP-STORE SUBMISSION)
+=========================================
+- privacy.html: add the ICO registration number (search for "ICO registration
+  number — to be confirmed").
+- .well-known files: fill in the real Apple Team ID and Android signing fingerprint.

@@ -1,0 +1,20 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.com.fertilityminds.app",
+        "paths": [
+          "/pages/*",
+          "/feedback",
+          "/"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TEAMID.com.fertilityminds.app"
+    ]
+  }
+}

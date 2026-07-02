@@ -5,16 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Fertility Minds — You don't have to navigate fertility alone</title>
   <meta name="description" content="Fertility Minds is a wellness and community platform supporting every stage of your fertility journey — expert-reviewed content, guided meditations, mood tracking and safe community spaces.">
-  <meta name="theme-color" content="#EC4899">
+  <meta name="theme-color" content="#fa6aab">
+  <link rel="icon" type="image/png" sizes="128x128" href="images/favicon-128.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fertility Minds — You don't have to navigate fertility alone">
+  <meta property="og:description" content="A wellness and community app for every stage of the fertility journey.">
+  <meta property="og:site_name" content="Fertility Minds">
+  <meta property="og:image" content="images/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --pink:#EC4899; --pink-deep:#EE5A8C; --purple:#A78BFA; --blue:#60A5FA; --green:#34D399;
-      --grad:linear-gradient(135deg,#F472B6 0%,#C084FC 58%,#A78BFA 100%);
-      --grad-soft:linear-gradient(180deg,#FDF2F8 0%,#F3F0FF 100%);
-      --ink:#201B33; --slate:#6B7280; --line:#ECEAF1; --soft:#F5F4F8; --white:#fff;
+      --pink:#fa6aab; --pink-deep:#E24E92; --purple:#6187E8; --blue:#6187E8; --green:#34D399; --indigo:#4f46e5;
+      --grad:linear-gradient(135deg,#fa6aab 0%,#FB8DC0 100%);
+      --grad-soft:linear-gradient(180deg,#FFF3F8 0%,#f5f5f7 100%);
+      --ink:#1d1d1f; --slate:#6B7280; --line:#ECEAF1; --soft:#f5f5f7; --white:#fff;
       --radius:24px; --radius-sm:16px; --shadow:0 18px 50px rgba(76,40,90,.10);
       --shadow-sm:0 8px 24px rgba(76,40,90,.07);
       --maxw:1160px;
@@ -46,6 +55,8 @@
     .brand{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.18rem}
     .brand .mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#fff}
     .brand .mark svg{width:20px;height:20px}
+    .brand-logo{width:38px;height:38px;object-fit:contain;display:block;flex-shrink:0}
+    .footer__brand .brand-logo{width:34px;height:34px}
     .nav__links{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0}
     .nav__links a{font-weight:600;color:#46415a;font-size:.97rem}
     .nav__links a:hover{color:var(--pink)}
@@ -170,7 +181,7 @@
 <header class="site-header">
   <div class="container nav">
     <a href="#top" class="brand" aria-label="Fertility Minds home">
-      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-7-11A4 4 0 0 1 12 7a4 4 0 0 1 7 3c0 6.4-7 11-7 11z" fill="currentColor"/></svg></span>
+      <img class="brand-logo" src="images/logo-mark.png" alt="Fertility Minds logo" width="38" height="38">
       <span>Fertility Minds</span>
     </a>
     <ul class="nav__links" id="nav">
@@ -320,12 +331,12 @@
       <div class="price-card">
         <div class="price-card__top">
           <span class="price-card__heart" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.6-7-11A4 4 0 0 1 12 7a4 4 0 0 1 7 3c0 6.4-7 11-7 11z"/></svg></span>
-          <span class="price-card__badge">14-day free trial</span>
-          <div class="price-card__label">Premium</div>
-          <div class="price-card__amount">£7.99<small> / month</small></div>
+          <span class="price-card__badge">14-day free trial available</span>
+          <div class="price-card__label">Premium membership</div>
+          <div class="price-card__amount">from £7.99<small> / month</small></div>
         </div>
         <div class="price-card__body">
-          <p class="price-card__sub">Start with a <strong>14-day free trial</strong>, then £7.99/month. Cancel anytime.</p>
+          <p class="price-card__sub">Premium membership starts from <strong>£7.99/month</strong>. Final pricing may vary by region, as Apple and Google calculate local taxes and rates.</p>
           <ul class="price-card__list">
             <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Full access to guided wellness videos &amp; meditations</li>
             <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Expert-verified articles and audio tools</li>
@@ -335,7 +346,7 @@
           </ul>
           <a href="#waitlist" class="btn btn--primary btn--block">Start your free trial
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          <p class="fineprint">Free for 14 days, then £7.99/month billed through the App Store or Google Play. Cancel anytime before the trial ends and you won't be charged.</p>
+          <p class="fineprint">A 14-day free trial is available for eligible users (those who have not previously purchased a Premium subscription). Billed through the App Store or Google Play from £7.99/month after any trial. Cancel anytime.</p>
         </div>
       </div>
     </div>
@@ -349,7 +360,7 @@
       <div class="cta-banner">
         <h2>Be the first to know when we launch.</h2>
         <p>Fertility Minds is launching soon on the App Store and Google Play. Get in touch to be notified the moment we go live.</p>
-        <a href="/contact" class="btn">Get in touch</a>
+        <a href="contact.html" class="btn">Get in touch</a>
       </div>
     </div>
   </section>
@@ -362,38 +373,40 @@
     <div class="footer__grid">
       <div class="footer__col">
         <div class="footer__brand">
-          <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-7-11A4 4 0 0 1 12 7a4 4 0 0 1 7 3c0 6.4-7 11-7 11z" fill="currentColor"/></svg></span>
+          <img class="brand-logo" src="images/logo-mark.png" alt="Fertility Minds logo" width="34" height="34">
           <span>Fertility Minds</span>
         </div>
         <p class="footer__tag">A safe space for every journey. Expert-led wellness, peer support and curated content for fertility wellbeing.</p>
-        <p class="footer__contact">Contact: <a href="mailto:hello@fertilityminds.com">hello@fertilityminds.com</a></p>
       </div>
       <div class="footer__col">
         <h4>Product</h4>
         <ul>
-          <li><a href="#why">Why us</a></li>
-          <li><a href="#experts">Expert-reviewed</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>Help</h4>
         <ul>
-          <li><a href="/pages/support">Support</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/pages/delete-account">Delete account</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="delete-account.html">Delete account</a></li>
+          <li><a href="refund-policy.html">Refunds</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
-          <li><a href="/pages/terms-of-service">Terms of Service</a></li>
-          <li><a href="/subscription-terms">Subscription Terms</a></li>
-          <li><a href="/pages/cookie-policy">Cookies Policy</a></li>
-          <li><a href="/pages/community-guidelines">Community Guidelines</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="subscription-terms.html">Subscription Terms</a></li>
+          <li><a href="cookies.html">Cookies Policy</a></li>
+          <li><a href="community-guidelines.html">Community Guidelines</a></li>
+          <li><a href="content-policy.html">Content Policy</a></li>
+          <li><a href="licenses.html">Licenses</a></li>
+          <li><a href="dmca.html">DMCA</a></li>
         </ul>
       </div>
     </div>
